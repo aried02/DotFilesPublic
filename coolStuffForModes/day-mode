@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# export DBUS_SESSION_BUS_ADDRESS environment variable because cron hates me
+PID=$(pgrep -u "abraham" gnome-session)
+export DBUS_SESSION_BUS_ADDRESS=$(grep -z DBUS_SESSION_BUS_ADDRESS /proc/$PID/environ|cut -d= -f2-)
+
+/usr/bin/gsettings set org.gnome.desktop.background picture-uri 'file:///home/abraham/coolStuffForModes/Island Day.jpg'

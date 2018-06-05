@@ -1,0 +1,56 @@
+[colors]
+color0=#1B242D
+color1=#879EA2
+color2=#8EAFB5
+color3=#A9C1BE
+color4=#9EBDC2
+color5=#9EC1C7
+color6=#B1CACD
+color7=#C4D7D8
+color9=#879EA2
+color10=#8EAFB5
+color11=#A9C1BE
+color12=#9EBDC2
+color13=#9EC1C7
+color14=#B1CACD
+color15=#C4D7D8
+color8=#666666
+
+[fonts]
+#noto = MesloLGS-Regular:size=11
+scp = SourceCodePro-Regular:size=11
+ubu = Ubuntu:size=11
+### Main bar ###
+
+[bar/base]
+top = true
+height = 24
+width = 50%
+offset-x = 25%
+underline-size = 3
+background = #ff
+foreground = #ffffff
+font-0 = ${fonts.ubu}
+
+[bar/main]
+inherit = bar/base
+monitor =
+modules-center = spotify
+scroll-up = xdotool key XF86AudioRaiseVolume
+scroll-down = xdotool key XF86AudioLowerVolume
+click-left = xdotool key ctrl+alt+p
+
+[module/spotify]
+type = custom/script
+exec = ~/.config/polybar/spotify.sh 
+tail = true
+interval = 2
+format-background = #b04037
+format-underline = #f73028
+format-padding = 2
+click-left = wmctrl -o 1920,1080
+click-right = xdotool key ctrl+shift+ampersand
+
+[settings]
+throttle-input-for = 30
+throttle-output-for = 1
